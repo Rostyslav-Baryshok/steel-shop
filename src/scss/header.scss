@@ -1,4 +1,44 @@
 //====================================================================================================
+.header {
+  // .header__top
+  &__top {
+    background-color: $mainDarkColor;
+    color: $mainLightColor;
+  }
+}
+.top-header {
+  // .top-header__container
+  &__container {
+  }
+
+  // .top-header__menu
+  &__menu {
+  }
+
+  // .top-header__user
+  &__user {
+  }
+}
+.menu {
+  // .menu__body
+  &__body {
+  }
+
+  // .menu__list
+  &__list {
+  }
+
+  // .menu__item
+  &__item {
+  }
+
+  // .menu__link
+  &__link {
+  }
+}
+
+.icon-menu {
+}
 
 //====================================================================================================
 
