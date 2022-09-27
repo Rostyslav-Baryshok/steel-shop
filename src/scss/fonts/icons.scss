@@ -15,6 +15,15 @@
   }
 }
 
+._icon-shop-cart:before {
+  content: "\e90b";
+}
+._icon-footer-clock:before {
+  content: "\e903";
+}
+._icon-footer-mail:before {
+  content: "\e905";
+}
 ._icon-arrow-bottom:before {
   content: "\e900";
 }
@@ -24,14 +33,8 @@
 ._icon-favorites:before {
   content: "\e902";
 }
-._icon-footer-clock:before {
-  content: "\e903";
-}
 ._icon-footer-location:before {
   content: "\e904";
-}
-._icon-footer-mail:before {
-  content: "\e905";
 }
 ._icon-footer-phone:before {
   content: "\e906";
@@ -47,9 +50,6 @@
 }
 ._icon-search:before {
   content: "\e90a";
-}
-._icon-shop-cart:before {
-  content: "\e90b";
 }
 ._icon-user:before {
   content: "\e90c";

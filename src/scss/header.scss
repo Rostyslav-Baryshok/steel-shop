@@ -80,6 +80,9 @@
   &__search {
     @include adaptiveValue("padding-left", 158, 20);
   }
+  // .body-header__actions
+  &__actions {
+  }
 }
 
 .search-header {
@@ -109,6 +112,64 @@
     background-color: transparent;
     border-radius: rem(3);
     outline: none;
+  }
+}
+//==========================================
+
+.actions-header {
+  // .actions-header__location
+  &__location {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      font-size: rem(24);
+      margin-right: em(10, 24);
+    }
+  }
+  // .actions-header__phones
+  &__phones {
+  }
+  // .actions-header__favorites
+  &__favorites {
+  }
+  // .actions-header__cart
+  &__cart {
+  }
+}
+
+.phones-header {
+  // .phones-header__items
+  &__items {
+  }
+  // .phones-header__item
+  &__item {
+  }
+  // .phones-header__phone
+  &__phone {
+  }
+  // .phones-header__arrow
+  &__arrow {
+  }
+  // .phones-header__list
+  &__list {
+  }
+  // .phones-header__callback
+  &__callback {
+  }
+}
+.cart-header {
+  // .cart-header__icon
+  &__icon {
+  }
+  // .cart-header__body
+  &__body {
+  }
+  // .cart-header__summ
+  &__summ {
+  }
+  // .cart-header__link
+  &__link {
   }
 }
 
