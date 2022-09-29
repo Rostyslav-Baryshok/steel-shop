@@ -38,6 +38,14 @@
       font-size: rem(28);
       margin-right: em(15, 28);
     }
+
+    @media (any-hover: hover) {
+      &:hover {
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
 //==========================================
@@ -62,6 +70,11 @@
   &__link {
     font-size: rem(16);
     line-height: math.div(20, 16);
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 //==========================================
@@ -190,8 +203,9 @@
     width: 100%;
     padding: rem(15);
     border-radius: rem(10);
-    background-color: $mainLightColor;
+    background-color: $seconderyLight;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 
     li {
       &:not(:last-child) {
@@ -205,6 +219,12 @@
     font-weight: 700;
     line-height: math.div(22, 18);
     color: $accentColor;
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 .cart-header {
@@ -248,6 +268,12 @@
   // .cart-header__link
   &__link {
     color: $accentColor;
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 //==========================================
@@ -281,6 +307,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: color 0.3s ease 0s;
 
     &::after {
       content: "";
@@ -288,11 +315,28 @@
       opacity: 0;
       visibility: hidden;
       left: rem(10);
-      bottom: 0;
+      bottom: rem(3);
       height: rem(1);
-      // width: 100%;
       width: calc(100% - rem(20));
       background-color: $accentColor;
+      transition: all 0.3s ease 0s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $accentColor;
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    &._sub-menu-active {
+      color: $accentColor;
+      &::after {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
   // .menu-catalog__sub-menu
@@ -304,28 +348,75 @@
     background-color: $mainDarkColor;
   }
 }
+
 .sub-menu-catalog {
   // .sub-menu-catalog__block
   &__block {
-    padding: 0 rem(10);
+    display: none;
+    padding-bottom: rem(30);
+
+    &._sub-menu-open {
+      display: flex;
+    }
   }
   // .sub-menu-catalog__column
   &__column {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 rem(320);
   }
   // .sub-menu-catalog__category
   &__category {
+    align-self: flex-start;
+    font-size: rem(16);
+    font-weight: 700;
+    line-height: math.div(20, 16);
+    padding: rem(30) rem(15);
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   // .sub-menu-catalog__list
   &__list {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    padding: rem(30) rem(15);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
   // .sub-menu-catalog__item
   &__item {
   }
   // .sub-menu-catalog__link
   &__link {
+    font-size: rem(16);
+    line-height: math.div(20, 16);
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   // .sub-menu-catalog__all
   &__all {
+    align-self: flex-start;
+    font-size: rem(16);
+    color: $accentColor;
+    padding-top: rem(30);
+    padding-left: rem(15);
+    padding-right: rem(15);
+
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
