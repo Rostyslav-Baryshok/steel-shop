@@ -48,13 +48,8 @@
     }
   }
 }
-//==========================================
-.menu {
-  // .menu__body
-  &__body {
-  }
-
-  // .menu__list
+.menu-top-header {
+  // .menu-top-header__list
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -62,11 +57,11 @@
     @include adaptiveValue("column-gap", 60, 20);
   }
 
-  // .menu__item
+  // .menu-top-header__item
   &__item {
   }
 
-  // .menu__link
+  // .menu-top-header__link
   &__link {
     font-size: rem(16);
     line-height: math.div(20, 16);
@@ -75,6 +70,16 @@
         text-decoration: underline;
       }
     }
+  }
+}
+//==========================================
+.menu {
+  @media (max-width: $tablet) {
+    flex: 0 0 rem(30);
+    display: block;
+  }
+  // .menu__body
+  &__body {
   }
 }
 //==========================================
@@ -89,14 +94,14 @@
   }
   // .body-header__logo
   &__logo {
-    font-size: rem(35);
     font-weight: 700;
+    @include adaptiveValue("font-size", 35, 28, 0, 1400, 1024);
   }
   // .body-header__search
   &__search {
     flex: 1 1 auto;
     padding-right: rem(20);
-    @include adaptiveValue("padding-left", 158, 20);
+    @include adaptiveValue("padding-left", 158, 20, 0, 1620, 1250);
   }
   // .body-header__actions
   &__actions {
@@ -139,13 +144,14 @@
 .actions-header {
   display: flex;
   align-items: center;
-  column-gap: rem(30);
+  @include adaptiveValue("column-gap", 30, 20, 0, 1620, 1200);
   // .actions-header__location
   &__location {
     display: inline-flex;
     align-items: center;
     font-weight: 600;
     margin-right: rem(25);
+    @include adaptiveValue("margin-right", 25, 0, 0, 1620, 1400);
     &::before {
       font-size: rem(24);
       margin-right: em(10, 24);
@@ -257,6 +263,10 @@
     flex: 0 0 auto;
     font-size: rem(16);
     line-height: math.div(20, 16);
+
+    @media (max-width: em(1250)) {
+      display: none;
+    }
   }
   // .cart-header__summ
   &__summ {
@@ -430,11 +440,10 @@
 //Burger
 
 .icon-menu {
-  display: none;
-  @media (max-width: $mobile) {
+  @media (max-width: $tablet) {
     display: block;
     position: relative;
-    flex: 0 0 30px;
+    width: rem(30);
     height: rem(18);
     cursor: pointer;
     z-index: 5;
