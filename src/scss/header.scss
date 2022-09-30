@@ -350,28 +350,32 @@
 }
 
 .sub-menu-catalog {
+  // .sub-menu-catalog__container
+  &__container {
+    padding: 0 rem(10);
+  }
+
   // .sub-menu-catalog__block
   &__block {
     display: none;
-    padding-bottom: rem(30);
+
+    @for $var from 1 to 6 {
+      &_#{$var} {
+        grid-template-columns: repeat($var, minmax(auto, rem(320)));
+      }
+    }
 
     &._sub-menu-open {
-      display: flex;
+      display: grid;
     }
   }
-  // .sub-menu-catalog__column
-  &__column {
-    display: flex;
-    flex-direction: column;
-    flex: 0 1 rem(320);
-  }
+
   // .sub-menu-catalog__category
   &__category {
-    align-self: flex-start;
     font-size: rem(16);
     font-weight: 700;
     line-height: math.div(20, 16);
-    padding: rem(30) rem(15);
+    padding: rem(30) rem(15) rem(30) 0;
 
     @media (any-hover: hover) {
       &:hover {
@@ -381,11 +385,10 @@
   }
   // .sub-menu-catalog__list
   &__list {
-    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     gap: rem(20);
-    padding: rem(30) rem(15);
+    padding: rem(30) rem(15) rem(30) 0;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
@@ -403,14 +406,16 @@
       }
     }
   }
+
+  // .sub-menu-catalog__footer
+  &__footer {
+    padding: rem(30) rem(15) rem(30) 0;
+  }
+
   // .sub-menu-catalog__all
   &__all {
-    align-self: flex-start;
     font-size: rem(16);
     color: $accentColor;
-    padding-top: rem(30);
-    padding-left: rem(15);
-    padding-right: rem(15);
 
     @media (any-hover: hover) {
       &:hover {

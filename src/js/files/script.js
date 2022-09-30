@@ -5,6 +5,18 @@ import { flsModules } from "./modules.js";
 
 document.addEventListener("click", documentActions);
 
+// add class
+const menuBlocks = document.querySelectorAll(".sub-menu-catalog__block");
+if (menuBlocks.length) {
+  menuBlocks.forEach((menuBlock) => {
+    const menuBlockItems = menuBlock.querySelectorAll(
+      ".sub-menu-catalog__category"
+    ).length;
+    menuBlock.classList.add(`sub-menu-catalog__block_${menuBlockItems}`);
+  });
+}
+
+// open sub-menu
 function documentActions(e) {
   const targetElement = e.target;
 
