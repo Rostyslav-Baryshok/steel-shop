@@ -18,7 +18,7 @@
   &__container {
     display: flex;
     align-items: center;
-    gap: rem(20);
+    gap: rem(25);
     min-height: rem(50);
   }
 
@@ -33,10 +33,10 @@
     align-items: center;
     font-weight: 600;
     line-height: math.div(22, 18);
+    gap: em(15, 18);
 
     &::before {
       font-size: rem(28);
-      margin-right: em(15, 28);
     }
 
     @media (any-hover: hover) {
@@ -44,6 +44,14 @@
         span {
           text-decoration: underline;
         }
+      }
+    }
+    @media (max-width: $tablet) {
+      &::before {
+        font-size: rem(35);
+      }
+      span {
+        display: none;
       }
     }
   }
@@ -97,12 +105,17 @@
       @include adaptiveValue("font-size", 30, 18, 0, 992, 320);
     }
   }
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
 }
 //==========================================
 .menu {
   @media (max-width: $tablet) {
-    flex: 0 0 rem(30);
-    display: block;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
   }
   // .menu__body
   &__body {
@@ -111,10 +124,10 @@
       width: 100%;
       height: 100%;
       top: 0;
-      left: 0;
+      left: -100%;
       overflow: auto;
       background-color: $mainDarkColor;
-      padding: rem(50) rem(15);
+      padding: rem(80) rem(15) rem(50) rem(15);
       z-index: 3;
     }
   }
@@ -128,6 +141,10 @@
     display: flex;
     min-height: rem(70);
     align-items: center;
+
+    @media (max-width: $tablet) {
+      justify-content: space-between;
+    }
   }
   // .body-header__logo
   &__logo {
@@ -137,8 +154,11 @@
   // .body-header__search
   &__search {
     flex: 1 1 auto;
-    padding-right: rem(20);
     @include adaptiveValue("padding-left", 158, 20, 0, 1620, 1250);
+
+    @media (min-width: $tablet) {
+      padding-right: rem(20);
+    }
   }
   // .body-header__actions
   &__actions {
@@ -147,11 +167,14 @@
 
 .search-header {
   position: relative;
-  max-width: rem(377);
   border-radius: rem(3);
   color: rgba(0, 0, 0, 0.5);
   background-color: rgba(7, 7, 7, 0.03);
   border: 1px solid rgba(4, 4, 4, 0.5);
+
+  @media (min-width: $tablet) {
+    max-width: rem(377);
+  }
 
   // .search-header__button
   &__button {
@@ -182,6 +205,7 @@
   display: flex;
   align-items: center;
   @include adaptiveValue("column-gap", 30, 20, 0, 1620, 1200);
+
   // .actions-header__location
   &__location {
     display: inline-flex;
@@ -189,21 +213,36 @@
     font-weight: 600;
     margin-right: rem(25);
     @include adaptiveValue("margin-right", 25, 0, 0, 1620, 1400);
+
     &::before {
       font-size: rem(24);
       margin-right: em(10, 24);
     }
+
+    @media (any-hover: hover) {
+      &:hover {
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
   }
+
   // .actions-header__phones
   &__phones {
   }
+
   // .actions-header__favorites
   &__favorites {
     font-size: rem(27);
   }
+
   // .actions-header__cart
   &__cart {
     flex: 0 0 auto;
+  }
+  @media (max-width: $tablet) {
+    display: none;
   }
 }
 
@@ -225,6 +264,25 @@
     &:hover {
       text-decoration: underline;
     }
+
+    &::before {
+      @extend %ic;
+      @extend ._icon-footer-phone;
+      display: none;
+    }
+
+    @media (max-width: $tablet) {
+      font-size: rem(25);
+    }
+    @media (max-width: $mobileSmall) {
+      &::before {
+        font-size: rem(32);
+        display: block;
+      }
+      span {
+        display: none;
+      }
+    }
   }
   // .phones-header__arrow
   &__arrow {
@@ -235,6 +293,10 @@
 
     &._spoller-active {
       transform: rotate(-180deg);
+    }
+
+    @media (max-width: $tablet) {
+      display: none;
     }
   }
   // .phones-header__list
@@ -255,6 +317,10 @@
         margin-bottom: em(8, 18);
       }
     }
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
   }
   // .phones-header__callback
   &__callback {
@@ -267,6 +333,10 @@
       &:hover {
         text-decoration: underline;
       }
+    }
+
+    @media (max-width: $tablet) {
+      display: none;
     }
   }
 }
@@ -480,8 +550,8 @@
   @media (max-width: $tablet) {
     display: block;
     position: relative;
-    width: rem(30);
-    height: rem(18);
+    width: rem(40);
+    height: rem(22.5);
     cursor: pointer;
     z-index: 5;
     span,
