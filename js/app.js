@@ -206,6 +206,7 @@
             if (bodyLockStatus && e.target.closest(".icon-menu")) {
                 bodyLockToggle();
                 document.documentElement.classList.toggle("menu-open");
+                if (document.documentElement.classList.contains("catalog-open")) document.documentElement.classList.remove("catalog-open");
             }
         }));
     }
@@ -628,6 +629,16 @@
                 targetElement.classList.toggle("_sub-menu-active");
                 subMenu.classList.toggle("_sub-menu-open");
             } else console.log("Что-то пошло не так..");
+            e.preventDefault();
+        }
+        if (targetElement.closest(".menu-top-header__link_catalog")) {
+            document.documentElement.classList.add("catalog-open");
+            e.preventDefault();
+        }
+        if (targetElement.closest(".menu-catalog__back")) {
+            document.documentElement.classList.remove("catalog-open");
+            document.querySelector("._sub-menu-active") ? document.querySelector("._sub-menu-active").classList.remove("_sub-menu-active") : null;
+            document.querySelector("._sub-menu-open") ? document.querySelector("._sub-menu-open").classList.remove("_sub-menu-open") : null;
             e.preventDefault();
         }
     }
