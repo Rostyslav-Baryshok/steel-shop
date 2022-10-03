@@ -29,6 +29,8 @@
 
   // .top-header__user
   &__user {
+    position: relative;
+    z-index: 5;
     display: inline-flex;
     align-items: center;
     font-weight: 600;
@@ -64,7 +66,7 @@
     @include adaptiveValue("column-gap", 60, 20);
     @media (max-width: $tablet) {
       flex-direction: column;
-      row-gap: rem(15);
+      row-gap: rem(20);
     }
   }
 
@@ -102,7 +104,7 @@
       }
     }
     @media (max-width: $tablet) {
-      @include adaptiveValue("font-size", 30, 18, 0, 992, 320);
+      @include adaptiveValue("font-size", 30, 20, 0, 992, 320);
     }
   }
 
@@ -127,8 +129,25 @@
       left: -100%;
       overflow: auto;
       background-color: $mainDarkColor;
-      padding: rem(80) rem(15) rem(50) rem(15);
+      padding: rem(100) rem(15) rem(50) rem(15);
+      transition: left 0.3s ease 0s;
       z-index: 3;
+      &::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: rem(70);
+        background-color: $mainDarkColor;
+      }
+
+      .menu-open & {
+        left: 0;
+        &::before {
+          left: 0;
+        }
+      }
     }
   }
 }
@@ -145,19 +164,24 @@
     @media (max-width: $tablet) {
       justify-content: space-between;
     }
+    @media (max-width: $mobileSmall) {
+      justify-content: center;
+    }
   }
   // .body-header__logo
   &__logo {
     font-weight: 700;
-    @include adaptiveValue("font-size", 35, 28, 0, 1400, 1024);
+    @include adaptiveValue("font-size", 35, 26, 0, 1400, 1024);
   }
   // .body-header__search
   &__search {
     flex: 1 1 auto;
-    @include adaptiveValue("padding-left", 158, 20, 0, 1620, 1250);
 
     @media (min-width: $tablet) {
       padding-right: rem(20);
+    }
+    @media (min-width: $mobileSmall) {
+      @include adaptiveValue("padding-left", 158, 20, 0, 1620, 1250);
     }
   }
   // .body-header__actions
@@ -198,6 +222,10 @@
     border-radius: rem(3);
     outline: none;
   }
+
+  @media (max-width: $mobileSmall) {
+    background-color: $mainLightColor;
+  }
 }
 //==========================================
 
@@ -234,6 +262,8 @@
 
   // .actions-header__favorites
   &__favorites {
+    position: relative;
+    z-index: 5;
     font-size: rem(27);
   }
 
@@ -247,6 +277,8 @@
 }
 
 .phones-header {
+  position: relative;
+  z-index: 5;
   // .phones-header__items
   &__items {
   }
@@ -341,6 +373,8 @@
   }
 }
 .cart-header {
+  position: relative;
+  z-index: 5;
   display: flex;
   align-items: center;
   column-gap: rem(15);
@@ -404,6 +438,9 @@
   // .catalog-header__menu
   &__menu {
   }
+  @media (max-width: $mobileSmall) {
+    padding: rem(20) 0;
+  }
 }
 .menu-catalog {
   // .menu-catalog__list
@@ -463,6 +500,14 @@
     top: 100%;
     left: 0;
     background-color: $mainDarkColor;
+  }
+  @media (max-width: $tablet) {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
   }
 }
 
