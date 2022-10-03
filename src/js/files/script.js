@@ -43,4 +43,24 @@ function documentActions(e) {
     }
     e.preventDefault();
   }
+
+  if (targetElement.closest(".menu-top-header__link_catalog")) {
+    document.documentElement.classList.add("catalog-open");
+    e.preventDefault();
+  }
+  if (targetElement.closest(".menu-catalog__back")) {
+    document.documentElement.classList.remove("catalog-open");
+
+    document.querySelector("._sub-menu-active")
+      ? document
+          .querySelector("._sub-menu-active")
+          .classList.remove("_sub-menu-active")
+      : null;
+    document.querySelector("._sub-menu-open")
+      ? document
+          .querySelector("._sub-menu-open")
+          .classList.remove("_sub-menu-open")
+      : null;
+    e.preventDefault();
+  }
 }

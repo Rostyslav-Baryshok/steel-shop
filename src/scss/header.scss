@@ -100,7 +100,7 @@
         flex: 0 0 rem(14);
         height: rem(14);
         font-size: rem(8);
-        transform: rotate(-90deg);
+        transform: translateY(rem(2)) rotate(-90deg);
       }
     }
     @media (max-width: $tablet) {
@@ -446,8 +446,13 @@
   // .menu-catalog__list
   &__list {
     display: flex;
-    gap: rem(10);
+    column-gap: rem(10);
     justify-content: space-between;
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      row-gap: rem(25);
+    }
   }
   // .menu-catalog__ilem
   &__ilem {
@@ -455,13 +460,16 @@
   // .menu-catalog__link
   &__link {
     position: relative;
-    min-height: rem(70);
-    padding: 0 rem(10);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     transition: color 0.3s ease 0s;
+
+    @media (min-width: $tablet) {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: rem(70);
+      padding: 0 rem(10);
+    }
 
     &::after {
       content: "";
@@ -492,6 +500,9 @@
         visibility: visible;
       }
     }
+    @media (max-width: $tablet) {
+      @include adaptiveValue("font-size", 30, 20, 0, 992, 320);
+    }
   }
   // .menu-catalog__sub-menu
   &__sub-menu {
@@ -508,6 +519,28 @@
     width: 100%;
     height: 100%;
     overflow: auto;
+    background-color: $mainDarkColor;
+    padding: rem(25) rem(15) rem(50) rem(15);
+    transition: left 0.3s ease 0s;
+
+    .catalog-open & {
+      left: 0;
+      z-index: 5;
+    }
+  }
+  &__back {
+    display: none;
+    @media (max-width: $tablet) {
+      display: inline-flex;
+      align-items: center;
+      @include adaptiveValue("font-size", 30, 20, 0, 992, 320);
+      &:not(:last-child) {
+        margin-bottom: em(65, 30);
+      }
+      &::before {
+        margin-right: em(13, 30);
+      }
+    }
   }
 }
 
@@ -586,7 +619,6 @@
     }
   }
 }
-
 //====================================================================================================
 
 //Burger
@@ -598,7 +630,7 @@
     width: rem(40);
     height: rem(22.5);
     cursor: pointer;
-    z-index: 5;
+    z-index: 10;
     span,
     &::before,
     &::after {
