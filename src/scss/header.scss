@@ -453,62 +453,77 @@
     background-color: $mainDarkColor;
     padding: rem(25) rem(15) rem(50) rem(15);
     transition: left 0.3s ease 0s;
-
     .catalog-open & {
       left: 0;
-      z-index: 5;
+      z-index: 6;
     }
-
-    // .menu-catalog__list
-    &__list {
-      display: flex;
-      column-gap: rem(10);
-      justify-content: space-between;
-
-      @media (max-width: $tablet) {
-        flex-direction: column;
-        row-gap: rem(25);
-      }
+  }
+  // .menu-catalog__list
+  &__list {
+    display: flex;
+    column-gap: 10px;
+    justify-content: space-between;
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      row-gap: rem(25);
     }
-    // .menu-catalog__ilem
-    &__ilem {
-    }
-    // .menu-catalog__link
-    &__link {
-      position: relative;
-      display: flex;
-      transition: color 0.3s ease 0s;
-
-      @media (min-width: $tablet) {
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        min-height: rem(70);
-        padding: 0 rem(10);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        opacity: 0;
-        visibility: hidden;
-        left: rem(10);
-        bottom: rem(3);
-        height: rem(1);
-        width: calc(100% - rem(20));
-        background-color: $accentColor;
-        transition: all 0.3s ease 0s;
-      }
-
-      @media (any-hover: hover) {
-        &:hover {
-          color: $accentColor;
-          &::after {
-            opacity: 1;
-            visibility: visible;
-          }
+  }
+  // .menu-catalog__item
+  &__item {
+  }
+  // .menu-catalog__link
+  &__link {
+    display: flex;
+    position: relative;
+    transition: color 0.3s ease 0s;
+    &[data-parent] {
+      &::before {
+        @extend %ic;
+        @extend ._icon-arrow-bottom;
+        display: none;
+        @media (max-width: $tablet) {
+          transform: rotate(-90deg);
+          display: block;
+          font-size: rem(8);
         }
       }
+      @media (max-width: $tablet) {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+      }
+    }
+    @media (min-width: $tablet) {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: rem(70);
+      padding: 0px rem(10);
+    }
+    &::after {
+      content: "";
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      bottom: 0;
+      left: rem(10);
+      height: 1px;
+      background-color: $accentColor;
+      width: calc(100% - rem(20));
+      transition: all 0.3s ease 0s;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: $accentColor;
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    @media (min-width: $tablet) {
       &._sub-menu-active {
         color: $accentColor;
         &::after {
@@ -516,17 +531,17 @@
           visibility: visible;
         }
       }
-      @media (max-width: $tablet) {
-        @include adaptiveValue("font-size", 30, 20, 0, 992, 320);
-      }
     }
-    // .menu-catalog__sub-menu
-    &__sub-menu {
-      width: 100%;
-      top: 100%;
-      left: 0;
-      background-color: $mainDarkColor;
+    @media (max-width: $tablet) {
+      @include adaptiveValue("font-size", 30, 20, 0, 992, 320);
     }
+  }
+  // .menu-catalog__sub-menu
+  &__sub-menu {
+    width: 100%;
+    left: 0;
+    top: 100%;
+    background-color: $mainDarkColor;
   }
   &__back {
     display: none;
@@ -538,13 +553,29 @@
         margin-bottom: em(65, 30);
       }
       &::before {
-        margin-right: em(13, 30);
+        margin: 0px em(13, 30) 0px 0px;
       }
     }
   }
 }
 
 .sub-menu-catalog {
+  @media (max-width: $tablet) {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: $mainDarkColor;
+    padding: rem(25) rem(15) rem(50) rem(15);
+    transition: left 0.3s ease 0s;
+    .sub-menu-open & {
+      display: block;
+      left: 0;
+      z-index: 6;
+    }
+  }
   &__back {
     display: none;
     @media (max-width: $tablet) {
@@ -555,58 +586,45 @@
         margin-bottom: em(65, 30);
       }
       &::before {
-        margin-right: em(13, 30);
+        margin: 0px em(13, 30) 0px 0px;
       }
     }
   }
-  // .sub-menu-catalog__container
-  &__container {
-    padding: 0 rem(10);
-  }
-
   // .sub-menu-catalog__block
   &__block {
     display: none;
-
     @for $var from 1 to 6 {
       &_#{$var} {
         grid-template-columns: repeat($var, minmax(auto, rem(320)));
       }
     }
-
     &._sub-menu-open {
       display: grid;
-    }
-
-    @media (max-width: $tablet) {
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: $mainDarkColor;
-      padding: rem(25) rem(15) rem(50) rem(15);
-      transition: left 0.3s ease 0s;
-
-      &._sub-menu-open {
+      @media (max-width: $tablet) {
         display: block;
-        left: 0;
-        z-index: 6;
       }
     }
   }
-
+  &__container {
+    padding: 0px rem(10);
+  }
   // .sub-menu-catalog__category
   &__category {
     font-size: rem(16);
-    font-weight: 700;
     line-height: math.div(20, 16);
-    padding: rem(30) rem(15) rem(30) 0;
 
     @media (any-hover: hover) {
       &:hover {
         text-decoration: underline;
+      }
+    }
+    @media (min-width: $tablet) {
+      font-weight: 700;
+      padding: rem(30) rem(15) rem(30) 0;
+    }
+    @media (max-width: $tablet) {
+      &:not(:last-child) {
+        margin-bottom: em(25, 16);
       }
     }
   }
@@ -614,13 +632,13 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: rem(20);
+    gap: 20px;
     padding: rem(30) rem(15) rem(30) 0;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    // @media (max-width: $tablet) {
-    //   display: none;
-    // }
+    @media (max-width: $tablet) {
+      display: none;
+    }
   }
   // .sub-menu-catalog__item
   &__item {
@@ -629,24 +647,27 @@
   &__link {
     font-size: rem(16);
     line-height: math.div(20, 16);
-
     @media (any-hover: hover) {
       &:hover {
         text-decoration: underline;
       }
     }
   }
-
+  // .sub-menu-catalog__link-category
+  &__link-category {
+    @include adaptiveValue("font-size", 30, 20, 0, 992, 320);
+  }
   // .sub-menu-catalog__footer
   &__footer {
     padding: rem(30) rem(15) rem(30) 0;
+    @media (max-width: $tablet) {
+      display: none;
+    }
   }
-
   // .sub-menu-catalog__all
   &__all {
     font-size: rem(16);
     color: $accentColor;
-
     @media (any-hover: hover) {
       &:hover {
         text-decoration: underline;
