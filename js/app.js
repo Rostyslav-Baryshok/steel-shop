@@ -207,6 +207,7 @@
                 bodyLockToggle();
                 document.documentElement.classList.toggle("menu-open");
                 if (document.documentElement.classList.contains("catalog-open")) document.documentElement.classList.remove("catalog-open");
+                if (document.documentElement.classList.contains("sub-menu-open")) document.documentElement.classList.remove("sub-menu-open");
             }
         }));
     }
@@ -625,10 +626,12 @@
                 if (activeLink && activeLink !== targetElement) {
                     activeLink.classList.remove("_sub-menu-active");
                     activeBlock.classList.remove("_sub-menu-open");
+                    document.documentElement.classList.remove("sub-menu-open");
                 }
+                document.documentElement.classList.toggle("sub-menu-open");
                 targetElement.classList.toggle("_sub-menu-active");
                 subMenu.classList.toggle("_sub-menu-open");
-            } else console.log("Что-то пошло не так..");
+            } else console.log("Ой, что-то пошло не так");
             e.preventDefault();
         }
         if (targetElement.closest(".menu-top-header__link_catalog")) {
@@ -641,7 +644,16 @@
             document.querySelector("._sub-menu-open") ? document.querySelector("._sub-menu-open").classList.remove("_sub-menu-open") : null;
             e.preventDefault();
         }
+        if (targetElement.closest(".sub-menu-catalog__back")) {
+            document.documentElement.classList.remove("sub-menu-open");
+            document.querySelector("._sub-menu-active") ? document.querySelector("._sub-menu-active").classList.remove("_sub-menu-active") : null;
+            document.querySelector("._sub-menu-open") ? document.querySelector("._sub-menu-open").classList.remove("_sub-menu-open") : null;
+            e.preventDefault();
+        }
     }
+    if (document.querySelector(".filter-catalog__title")) document.querySelector(".filter-catalog__title").addEventListener("click", (function(e) {
+        if (window.innerWidth < 992) document.querySelector(".filter-catalog__items").classList.toggle("_active");
+    }));
     window["FLS"] = true;
     isWebp();
     menuInit();
