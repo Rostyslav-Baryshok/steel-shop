@@ -1,3 +1,69 @@
-//====================================================================================================
+.main-block {
+  // .main-block__container
+  &__container {
+  }
+  // .main-block__body
+  &__body {
+  }
+  // .main-block__slider
+  &__slider {
+  }
+  // .main-block__swiper
+  &__swiper {
+  }
+  // .main-block__slide
+  &__slide {
+  }
+  // .main-block__media
+  &__media {
+  }
+  // .main-block__advantages
+  &__advantages {
+  }
+}
+.swiper-slide {
+  // .swiper-slide__contant
+  &__contant {
+  }
+  // .swiper-slide__title
+  &__title {
+  }
+  // .swiper-slide__sub-title
+  &__sub-title {
+  }
+  // .swiper-slide__text
+  &__text {
+  }
+  // .swiper-slide__button
+  &__button {
+  }
+}
 
-//====================================================================================================
+.media-main-block {
+  // .media-main-block__image
+  &__image {
+  }
+  // .media-main-block__plus
+  &__plus {
+    // .media-main-block__plus_1
+    &_1 {
+    }
+    // .media-main-block__plus_2
+    &_2 {
+    }
+    // .media-main-block__plus_3
+    &_3 {
+    }
+  }
+}
+.advantages-main {
+  // .advantages-main__item
+  &__item {
+  }
+  // .advantages-main__icon
+  &__icon {
+  }
+  // .advantages-main__text
+  &__text {
+  }
+}
