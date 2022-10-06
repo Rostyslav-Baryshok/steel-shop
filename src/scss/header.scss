@@ -655,7 +655,7 @@
   }
   // .sub-menu-catalog__link-category
   &__link-category {
-    @include adaptiveValue("font-size", 30, 20, 0, 992, 320);
+    @include adaptiveValue("font-size", 30, 20, 1, 992, 320);
   }
   // .sub-menu-catalog__footer
   &__footer {
