@@ -1,9 +1,14 @@
 .main-block {
+  background: url("@img/main-block/background.jpg ") center / cover no-repeat;
+  @include adaptiveValue("padding-top", 40, 20);
+  @include adaptiveValue("padding-bottom", 60, 20);
   // .main-block__container
   &__container {
   }
   // .main-block__body
   &__body {
+    display: grid;
+    grid-template-columns: 1fr percent(635, 1600);
   }
   // .main-block__slider
   &__slider {
@@ -24,15 +29,39 @@
 .swiper-slide {
   // .swiper-slide__contant
   &__contant {
+    color: $mainLightColor;
+    padding-right: rem(40);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 60, 30);
+    }
   }
   // .swiper-slide__title
   &__title {
+    font-weight: 700;
+    font-size: rem(36);
+    letter-spacing: 0.03em;
+    line-height: math.div(46, 36);
+
+    &:not(:last-child) {
+      margin-bottom: em(15, 36);
+    }
   }
   // .swiper-slide__sub-title
   &__sub-title {
+    font-size: rem(36);
+    letter-spacing: 0.03em;
+    line-height: math.div(46, 36);
+
+    &:not(:last-child) {
+      margin-bottom: em(30, 36);
+    }
   }
   // .swiper-slide__text
   &__text {
+    font-size: 20px;
+    line-height: math.div(30, 20);
+    color: rgba(255, 255, 255, 0.7);
   }
   // .swiper-slide__button
   &__button {
