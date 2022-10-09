@@ -8,6 +8,7 @@
   // .main-block__body
   &__body {
     display: grid;
+    align-items: start;
     grid-template-columns: 1fr percent(635, 1600);
   }
   // .main-block__slider
@@ -17,6 +18,9 @@
   }
   // .main-block__swiper
   &__swiper {
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
   }
   // .main-block__slide
   &__slide {
@@ -32,19 +36,59 @@
   }
 }
 .controll-main-block {
-  display: flex;
+  display: inline-grid;
+  grid-auto-flow: column;
   align-items: center;
   gap: rem(20);
   // .controll-main-block__dotts
   &__dotts {
     display: flex;
     gap: rem(15);
-    height: rem(2);
+    grid-auto-flow: column;
     .swiper-pagination-bullet {
+      position: relative;
+      cursor: pointer;
+      height: rem(40);
+      width: rem(18);
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translate(0px, -50%);
+        height: rem(2);
+        background-color: $mainLightColor;
+        transition: all 0.3s ease 0s;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        width: rem(10);
+        height: rem(10);
+        border-radius: 50%;
+        opacity: 0;
+        background-color: $accentColor;
+      }
+    }
+    .swiper-pagination-bullet-active {
+      width: rem(25);
+      &::after {
+        background-color: $accentColor;
+      }
+      &::before {
+        opacity: 1;
+        left: rem(20);
+        transition: left 3s linear 0s;
+      }
     }
   }
   // .controll-main-block__fraction
   &__fraction {
+    display: flex;
+    color: $mainLightColor;
   }
 }
 .fraction-controll {
