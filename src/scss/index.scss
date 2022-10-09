@@ -32,8 +32,16 @@
   }
 }
 .controll-main-block {
+  display: flex;
+  align-items: center;
+  gap: rem(20);
   // .controll-main-block__dotts
   &__dotts {
+    display: flex;
+    gap: rem(15);
+    height: rem(2);
+    .swiper-pagination-bullet {
+    }
   }
   // .controll-main-block__fraction
   &__fraction {
