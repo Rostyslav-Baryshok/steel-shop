@@ -808,8 +808,98 @@ body::after {
 .main-block__body {
   display: -ms-grid;
   display: grid;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   -ms-grid-columns: 1fr 39.6875%;
   grid-template-columns: 1fr 39.6875%;
+}
+
+.main-block__slider {
+  margin: 0 -1.875rem;
+  padding: 0 1.875rem;
+}
+
+.main-block__swiper:not(:last-child) {
+  margin-bottom: 1.875rem;
+}
+
+.controll-main-block {
+  display: -ms-inline-grid;
+  display: inline-grid;
+  grid-auto-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.25rem;
+}
+
+.controll-main-block__dotts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.9375rem;
+  grid-auto-flow: column;
+}
+
+.controll-main-block__dotts .swiper-pagination-bullet {
+  position: relative;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 1.125rem;
+}
+
+.controll-main-block__dotts .swiper-pagination-bullet::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  -webkit-transform: translate(0px, -50%);
+      -ms-transform: translate(0px, -50%);
+          transform: translate(0px, -50%);
+  height: 0.125rem;
+  background-color: #fff;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.controll-main-block__dotts .swiper-pagination-bullet::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  opacity: 0;
+  background-color: #e8aa31;
+}
+
+.controll-main-block__dotts .swiper-pagination-bullet-active {
+  width: 1.5625rem;
+}
+
+.controll-main-block__dotts .swiper-pagination-bullet-active::after {
+  background-color: #e8aa31;
+}
+
+.controll-main-block__dotts .swiper-pagination-bullet-active::before {
+  opacity: 1;
+  left: 1.25rem;
+  -webkit-transition: left 3s linear 0s;
+  -o-transition: left 3s linear 0s;
+  transition: left 3s linear 0s;
+}
+
+.controll-main-block__fraction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
 }
 
 .swiper-slide__contant {
@@ -1053,6 +1143,49 @@ body::after {
   position: relative;
   padding: 5px 9px;
   z-index: 1;
+}
+
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.swiper-vertical .swiper-wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.swiper-autoheight .swiper-wrapper {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.swiper-initialized .swiper-slide {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.swiper-android .swiper-slide,
+.swiper-android .swiper-wrapper {
+  -webkit-transform: translate3d(0px, 0, 0);
+          transform: translate3d(0px, 0, 0);
+}
+
+.swiper-button-lock {
+  display: none !important;
 }
 
 @media (min-width: 29.99875em) and (min-width: 101.25em) {
