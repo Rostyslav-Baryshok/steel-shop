@@ -6418,7 +6418,7 @@
             on: {
                 init: function(swiper) {
                     const allSlides = document.querySelector(".fraction-controll__all");
-                    const allSlidesItems = document.querySelectorAll(".slide-main-block:not(.swiper-slide-duplicate)");
+                    const allSlidesItems = document.querySelectorAll(".swiper-slide:not(.swiper-slide-duplicate)");
                     allSlides.innerHTML = allSlidesItems.length < 10 ? `0${allSlidesItems.length}` : allSlidesItems.length;
                 },
                 slideChange: function(swiper) {
