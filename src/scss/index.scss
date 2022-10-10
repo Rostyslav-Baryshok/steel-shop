@@ -10,6 +10,10 @@
     display: grid;
     align-items: start;
     grid-template-columns: 1fr percent(635, 1600);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 42, 30);
+    }
   }
   // .main-block__slider
   &__slider {
@@ -38,17 +42,18 @@
 .controll-main-block {
   display: inline-grid;
   grid-auto-flow: column;
-  align-items: center;
+  align-items: start;
   gap: rem(20);
   // .controll-main-block__dotts
   &__dotts {
     display: flex;
     gap: rem(15);
     grid-auto-flow: column;
+    transform: translate(0px, 10%);
     .swiper-pagination-bullet {
       position: relative;
       cursor: pointer;
-      height: rem(40);
+      height: rem(30);
       width: rem(18);
       &::after {
         content: "";
@@ -87,16 +92,22 @@
   }
   // .controll-main-block__fraction
   &__fraction {
-    display: flex;
-    color: $mainLightColor;
   }
 }
 .fraction-controll {
+  display: flex;
+  align-items: flex-end;
+  font-weight: 600;
+  color: $mainLightColor;
+  letter-spacing: 0.1em;
   // .fraction-controll__current
   &__current {
+    color: $accentColor;
+    font-size: rem(24);
   }
   // .fraction-controll__all
   &__all {
+    font-size: rem(18);
   }
 }
 
@@ -160,13 +171,14 @@
       position: absolute;
       right: 0;
       bottom: 4%;
-      width: rem(423);
-      height: rem(423);
+      width: percent(423, 449);
+      padding-bottom: percent(423, 449);
       border-radius: 50%;
       border: 2px solid rgba(255, 255, 255, 0.5);
       transform: translate(percent(131, 423), 0px);
     }
     img {
+      max-width: 100%;
       position: relative;
       z-index: 2;
     }
@@ -240,13 +252,25 @@
 }
 
 .advantages-main {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: rem(10);
+  justify-content: space-between;
   // .advantages-main__item
   &__item {
+    display: grid;
+    gap: rem(17);
+    text-align: center;
+    max-width: rem(290);
   }
   // .advantages-main__icon
   &__icon {
   }
   // .advantages-main__text
   &__text {
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: math.div(32, 20);
+    color: $mainLightColor;
   }
 }
