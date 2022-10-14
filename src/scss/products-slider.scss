@@ -53,6 +53,7 @@
   }
 }
 .product-card {
+  height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
@@ -72,26 +73,69 @@
   }
   // .product-card__body
   &__body {
+    display: flex;
+    flex-direction: column;
     padding: rem(20);
   }
   // .product-card__title
   &__title {
+    flex: 1 1 auto;
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: math.div(34, 20);
+    &:not(:last-child) {
+      margin-bottom: em(10, 20);
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   // .product-card__link-title
   &__link-title {
   }
   // .product-card__info
   &__info {
+    &:not(:last-child) {
+      margin-bottom: em(11, 16);
+    }
   }
   // .product-card__rating
   &__rating {
+    justify-content: space-between;
+    &:not(:last-child) {
+      margin-bottom: rem(26);
+    }
   }
   // .product-card__footer
   &__footer {
+    display: flex;
+    align-items: center;
+    gap: rem(15);
+    padding-top: rem(20);
+    padding-bottom: rem(26);
+    border-top: 1px solid rgba(20, 20, 20, 0.5);
   }
   // .product-card__price
   &__price {
+    flex: 1 1 auto;
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: math.div(34, 20);
   }
+
+  &__compare,
+  &__favorite {
+    font-size: rem(24);
+    transition: color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: $accentColor;
+      }
+    }
+  }
+
   // .product-card__compare
   &__compare {
   }
@@ -100,9 +144,25 @@
   }
   // .product-card__button
   &__button {
+    width: 100%;
+    font-size: rem(18);
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row-reverse;
+      &::before {
+        margin-left: rem(16);
+      }
+    }
   }
 }
 .info-product-card {
+  display: flex;
+  justify-content: space-between;
+  gap: rem(10);
+  font-size: rem(16);
+  color: $seconderyTwoLight;
   // .info-product-card__size
   &__size {
   }
