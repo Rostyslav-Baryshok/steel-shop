@@ -105,7 +105,7 @@ function initSliders() {
         init: function (swiper) {
           const allSlides = document.querySelector(".fraction-controll__all");
           const allSlidesItems = document.querySelectorAll(
-            ".swiper-slide:not(.swiper-slide-duplicate)"
+            ".slide-main-block:not(.swiper-slide-duplicate)"
           );
           allSlides.innerHTML =
             allSlidesItems.length < 10
