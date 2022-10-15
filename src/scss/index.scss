@@ -48,7 +48,7 @@
   gap: rem(20);
   // .controll-main-block__dotts
   &__dotts {
-    display: flex;
+    display: inline-grid;
     gap: rem(15);
     grid-auto-flow: column;
     transform: translate(0px, 10%);
