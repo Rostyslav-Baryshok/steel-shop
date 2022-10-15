@@ -238,10 +238,17 @@
 					</div>
 				</div>
 			</section>
-			@@include('html/_products-slider.htm',{
-			"title":"Bestsellers"
-			})
-
+			<section class="page__hits-products hits-products">
+				@@include('html/_products-slider.htm',{
+				"title":"Bestsellers",
+				"moretext":"Go to catalog"
+				})
+			</section>
+			<section class="page__new-products new-products">
+				@@include('html/_products-new.htm',{
+				"title":"New"
+				})
+			</section>
 		</main>
 		@@include('html/_footer.htm',{})
 	</div>
