@@ -56,3 +56,25 @@
     }
   }
 }
+//========================================================================================================================================================
+.link-arrow {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  font-weight: 600;
+  font-size: rem(20);
+  line-height: math.div(46, 20);
+  color: $accentColor;
+  &::before {
+    font-size: rem(10);
+    margin-left: em(20, 20);
+    transform: rotate(-90deg);
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+}

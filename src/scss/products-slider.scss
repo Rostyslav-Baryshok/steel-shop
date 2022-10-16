@@ -62,6 +62,7 @@
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr;
+  background-color: $mainLightColor;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease 0s;
 
