@@ -18,6 +18,7 @@
   font-style: normal;
 }
 
+._spoller-init .spoller-item-footer__title::after,
 .products-slider__more::after,
 .menu-catalog__link[data-parent]::before,
 .phones-header__phone::before,
@@ -1215,14 +1216,15 @@ body::after {
 .body-footer {
   display: -ms-grid;
   display: grid;
-  gap: 2.1875rem;
 }
 
 .body-footer__row {
   display: -ms-grid;
   display: grid;
-  gap: 1.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  -webkit-column-gap: 2.5rem;
+     -moz-column-gap: 2.5rem;
+          column-gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(18.125rem, 1fr));
 }
 
 .body-footer__row:not(:last-child) {
@@ -1235,6 +1237,45 @@ body::after {
   color: #fff;
   text-transform: uppercase;
   line-height: 1.2222222222;
+}
+
+._spoller-init .spoller-item-footer__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 0.625rem;
+}
+
+._spoller-init .spoller-item-footer__title::after {
+  content: "\e900";
+  font-size: 0.5rem;
+  -webkit-transition: -webkit-transform 0.3s ease 0s;
+  transition: -webkit-transform 0.3s ease 0s;
+  -o-transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+}
+
+._spoller-init .spoller-item-footer__title._spoller-active::after {
+  -webkit-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.menu-footer__item:not(:last-child) {
+  margin-bottom: 1.1111111111em;
+}
+
+.menu-footer__link {
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .no-webp .main-block{
@@ -2112,6 +2153,22 @@ body::after {
     padding-bottom: 3.125rem;
   }
 
+  .body-footer {
+    gap: 2.1875rem;
+  }
+
+  .body-footer__row {
+    row-gap: 2.5rem;
+  }
+
+  .spoller-item-footer__body {
+    padding-top: 1.875rem;
+  }
+
+  .spoller-item-footer__body {
+    padding-bottom: 1.875rem;
+  }
+
   .main-block {
     padding-top: 2.5rem;
   }
@@ -2290,6 +2347,22 @@ body::after {
 
   .body-footer {
     padding-bottom: 1.875rem;
+  }
+
+  .body-footer {
+    gap: 0.9375rem;
+  }
+
+  .body-footer__row {
+    row-gap: 1.25rem;
+  }
+
+  .spoller-item-footer__body {
+    padding-top: 1.25rem;
+  }
+
+  .spoller-item-footer__body {
+    padding-bottom: 1.25rem;
   }
 
   .main-block {
@@ -2926,6 +2999,54 @@ body::after {
 @supports not (padding-bottom: clamp( 1.875rem , 1.5673076923rem  +  1.5384615385vw , 3.125rem )) {
     .body-footer {
       padding-bottom: calc(1.875rem + 1.25 * (100vw - 20rem) / 81.25);
+    }
+}
+
+@supports (gap: clamp( 0.9375rem , 0.6298076923rem  +  1.5384615385vw , 2.1875rem )) {
+    .body-footer {
+      gap: clamp( 0.9375rem , 0.6298076923rem  +  1.5384615385vw , 2.1875rem );
+    }
+}
+
+@supports not (gap: clamp( 0.9375rem , 0.6298076923rem  +  1.5384615385vw , 2.1875rem )) {
+    .body-footer {
+      gap: calc(0.9375rem + 1.25 * (100vw - 20rem) / 81.25);
+    }
+}
+
+@supports (row-gap: clamp( 1.25rem , 0.9423076923rem  +  1.5384615385vw , 2.5rem )) {
+    .body-footer__row {
+      row-gap: clamp( 1.25rem , 0.9423076923rem  +  1.5384615385vw , 2.5rem );
+    }
+}
+
+@supports not (row-gap: clamp( 1.25rem , 0.9423076923rem  +  1.5384615385vw , 2.5rem )) {
+    .body-footer__row {
+      row-gap: calc(1.25rem + 1.25 * (100vw - 20rem) / 81.25);
+    }
+}
+
+@supports (padding-top: clamp( 1.25rem , 1.0961538462rem  +  0.7692307692vw , 1.875rem )) {
+    .spoller-item-footer__body {
+      padding-top: clamp( 1.25rem , 1.0961538462rem  +  0.7692307692vw , 1.875rem );
+    }
+}
+
+@supports not (padding-top: clamp( 1.25rem , 1.0961538462rem  +  0.7692307692vw , 1.875rem )) {
+    .spoller-item-footer__body {
+      padding-top: calc(1.25rem + 0.625 * (100vw - 20rem) / 81.25);
+    }
+}
+
+@supports (padding-bottom: clamp( 1.25rem , 1.0961538462rem  +  0.7692307692vw , 1.875rem )) {
+    .spoller-item-footer__body {
+      padding-bottom: clamp( 1.25rem , 1.0961538462rem  +  0.7692307692vw , 1.875rem );
+    }
+}
+
+@supports not (padding-bottom: clamp( 1.25rem , 1.0961538462rem  +  0.7692307692vw , 1.875rem )) {
+    .spoller-item-footer__body {
+      padding-bottom: calc(1.25rem + 0.625 * (100vw - 20rem) / 81.25);
     }
 }
 
