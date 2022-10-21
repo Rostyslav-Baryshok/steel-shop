@@ -40,14 +40,14 @@
 }
 .body-footer {
   display: grid;
-  gap: rem(35);
   @include adaptiveValue("padding-top", 100, 50);
   @include adaptiveValue("padding-bottom", 50, 30);
+  @include adaptiveValue("gap", 35, 15);
   // .body-footer__row
   &__row {
     display: grid;
-    gap: rem(20);
-    grid-template-columns: repeat(auto-fit, minmax(rem(400), 1fr));
+    gap: rem(40);
+    grid-template-columns: repeat(auto-fit, minmax(rem(290), 1fr));
     &:not(:last-child) {
       padding-bottom: rem(30);
       border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -75,6 +75,7 @@
   }
   // .spoller-item-footer__body
   &__body {
+    padding-top: em(30, 18);
   }
 }
 .menu-footer {
@@ -83,8 +84,13 @@
   }
   // .menu-footer__item
   &__item {
+    &:not(:last-child) {
+      margin-bottom: em(20, 18);
+    }
   }
   // .menu-footer__link
   &__link {
+    line-height: math.div(27, 18);
+    color: rgba(255, 255, 255, 0.8);
   }
 }
