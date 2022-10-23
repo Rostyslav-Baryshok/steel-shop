@@ -97,6 +97,14 @@
     @include adaptiveValue("padding-top", 30, 20);
     @include adaptiveValue("padding-bottom", 30, 20);
   }
+  // .spoller-item-footer__text
+  &__text {
+    line-height: math.div(27, 18);
+    color: rgba(255, 255, 255, 0.8);
+    a {
+      color: $accentColor;
+    }
+  }
 }
 .menu-footer {
   // .menu-footer__list
@@ -104,13 +112,31 @@
   }
   // .menu-footer__item
   &__item {
+    display: flex;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
     &:not(:last-child) {
       margin-bottom: em(20, 18);
+    }
+    &::before {
+      font-size: rem(18);
+      margin-top: em(5, 15);
+      margin-right: em(10, 15);
     }
   }
   // .menu-footer__link
   &__link {
+    display: inline-flex;
     line-height: math.div(27, 18);
-    color: rgba(255, 255, 255, 0.8);
+    &::before {
+      font-size: rem(18);
+      margin-top: em(5, 15);
+      margin-right: em(10, 15);
+    }
+    &._icon-footer-mail {
+      &::before {
+        font-size: rem(15);
+      }
+    }
   }
 }
