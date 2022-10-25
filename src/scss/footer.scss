@@ -42,7 +42,7 @@
   display: grid;
   @include adaptiveValue("padding-top", 100, 50);
   @include adaptiveValue("padding-bottom", 50, 30);
-  @include adaptiveValue("gap", 35, 15);
+  @include adaptiveValue("gap", 35, 25);
   // .body-footer__row
   &__row {
     display: grid;
@@ -56,6 +56,27 @@
   }
   // .body-footer__item
   &__item {
+  }
+  // .body-footer__bottom
+  &__bottom {
+    font-size: rem(14);
+    line-height: math.div(27, 14);
+    color: rgba(255, 255, 255, 0.8);
+    @media (min-width: em(1200)) {
+      display: flex;
+      gap: rem(20);
+      justify-content: space-between;
+    }
+  }
+  // .body-footer__rules
+  &__rules {
+    max-width: rem(600);
+  }
+  // .body-footer__copy
+  &__copy {
+    span {
+      white-space: nowrap;
+    }
   }
 }
 .item-footer {
