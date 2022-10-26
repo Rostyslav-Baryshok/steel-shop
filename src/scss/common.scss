@@ -14,6 +14,13 @@
   }
   &__products-block {
   }
+
+  &__inner {
+    padding-top: rem(30);
+  }
+  &__header {
+    margin-bottom: rem(30);
+  }
 }
 //========================================================================================================================================================
 .dotts {
@@ -82,5 +89,44 @@
         text-decoration: underline;
       }
     }
+  }
+}
+//========================================================================================================================================================
+.breadcrumbs {
+  white-space: nowrap;
+  overflow: auto;
+  height: rem(22);
+  // .breadcrumbs__list
+  &__list {
+    display: flex;
+  }
+  // .breadcrumbs__item
+  &__item {
+  }
+  // .breadcrumbs__link
+  &__link {
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+    &::after {
+      content: "\e900";
+      @extend %ic;
+      transform: rotate(-90deg);
+      font-size: rem(7);
+      margin: 0 em(10, 7);
+    }
+  }
+  // .breadcrumbs__current
+  &__current {
+    color: $accentColor;
+  }
+}
+//========================================================================================================================================================
+.title {
+  font-weight: 700;
+  font-size: rem(24);
+  line-height: math.div(29, 24);
+  &:not(:last-child) {
+    margin-bottom: em(25, 24);
   }
 }
