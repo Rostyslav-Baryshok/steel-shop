@@ -134,6 +134,7 @@
         @extend %ic;
         content: "\e900";
         font-size: rem(8);
+        margin-left: em(10, 8);
       }
     }
     .select__option {
