@@ -46,3 +46,48 @@
   &__paging {
   }
 }
+//========================================================================================================================================================
+.filter-catalog {
+  // .filter-catalog__title
+  &__title {
+  }
+  // .filter-catalog__items
+  &__items {
+  }
+  // .filter-catalog__price
+  &__price {
+  }
+}
+.price-filter {
+  // .price-filter__title
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    width: 100%;
+    &::before {
+      color: $accentColor;
+      font-size: rem(8);
+      transform: rotate(-180deg);
+      transition: transform 0.3s ease 0s;
+    }
+    &._spoller-active {
+      &::before {
+        transform: rotate(0deg);
+      }
+    }
+  }
+  // .price-filter__body
+  &__body {
+  }
+  // .price-filter__inputs
+  &__inputs {
+  }
+  // .price-filter__input
+  &__input {
+  }
+  // .price-filter__range
+  &__range {
+  }
+}
