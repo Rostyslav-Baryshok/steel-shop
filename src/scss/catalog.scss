@@ -48,8 +48,16 @@
 }
 //========================================================================================================================================================
 .filter-catalog {
+  background-color: $seconderyFourLight;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   // .filter-catalog__title
   &__title {
+    font-weight: 700;
+    font-size: rem(20);
+    line-height: math.div(24, 20);
+    padding: rem(20) rem(30);
+    color: $mainLightColor;
+    background-color: $mainDarkColor;
   }
   // .filter-catalog__items
   &__items {
@@ -59,6 +67,7 @@
   }
 }
 .price-filter {
+  padding: rem(30);
   // .price-filter__title
   &__title {
     display: flex;
@@ -80,12 +89,27 @@
   }
   // .price-filter__body
   &__body {
+    padding-top: rem(30);
   }
   // .price-filter__inputs
   &__inputs {
+    display: flex;
+    border-radius: rem(2);
+    border: 1px solid #cbcbcb;
+    overflow: hidden;
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
   }
   // .price-filter__input
   &__input {
+    width: 50%;
+    height: rem(42);
+    text-align: center;
+    padding: 0 rem(15);
+    &:not(:last-child) {
+      border-right: 1px solid #cbcbcb;
+    }
   }
   // .price-filter__range
   &__range {
