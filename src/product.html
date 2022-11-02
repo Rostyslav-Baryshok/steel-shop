@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/_head.htm',{
+"title":"Product"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page page__inner">
+      <div class="page__header">
+        <div class="page__container">
+          <nav class="page__breadcrumbs breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a href="" class="breadcrumbs__link">Home</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <span href="" class="breadcrumbs__current">Carving knives</span>
+              </li>
+              <li class="breadcrumbs__item">
+                <span href="" class="breadcrumbs__current">Knife</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product__container">
+          <div class="product-main main-product">
+            <div class="main-product__images images-product">
+              <div class="images-product__slider">
+                <div class="images-product__swiper">
+                  <div class="images-product__slide-ibg">
+                    <img src="@img/product/product-main.jpg" alt="Knife">
+                  </div>
+                  <div class="images-product__slide-ibg">
+                    <img src="@img/product/product-main.jpg" alt="Knife">
+                  </div>
+                  <div class="images-product__slide-ibg">
+                    <img src="@img/product/product-main.jpg" alt="Knife">
+                  </div>
+                  <div class="images-product__slide-ibg">
+                    <img src="@img/product/product-main.jpg" alt="Knife">
+                  </div>
+                </div>
+              </div>
+              <div class="images-product__thumbs thumbs-images">
+                <div class="thumbs-images__swiper">
+                  <div class="thumbs-images__slide-ibg">
+                    <img src="@img/product/product-01.jpg" alt="Knife">
+                  </div>
+                  <div class="thumbs-images__slide-ibg">
+                    <img src="@img/product/product-02.jpg" alt="Knife">
+                  </div>
+                  <div class="thumbs-images__slide-ibg">
+                    <img src="@img/product/product-03.jpg" alt="Knife">
+                  </div>
+                  <div class="thumbs-images__slide-ibg">
+                    <img src="@img/product/product-04.jpg" alt="Knife">
+                  </div>
+                  <div class="thumbs-images__slide-ibg">
+                    <img src="@img/product/product-01.jpg" alt="Knife">
+                  </div>
+                  <div class="thumbs-images__slide-ibg">
+                    <img src="@img/product/product-02.jpg" alt="Knife">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  @@include('html/_popup.htm',{})
+  @@include('html/_js.htm',{})
+</body>
+
+</html>
