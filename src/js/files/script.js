@@ -14,7 +14,6 @@ if (menuBlocks.length) {
     menuBlock.classList.add(`sub-menu-catalog__block_${menuBlockItems}`);
   });
 }
-
 function documentActions(e) {
   const targetElement = e.target;
   if (targetElement.closest("[data-parent]")) {
@@ -72,7 +71,6 @@ function documentActions(e) {
     e.preventDefault();
   }
 }
-
 if (document.querySelector(".filter-catalog__title")) {
   document
     .querySelector(".filter-catalog__title")
