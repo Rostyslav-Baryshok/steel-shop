@@ -233,5 +233,11 @@
     ._tab-spoller & {
       padding: rem(30) 0;
     }
+    p {
+      @include adaptiveValue("font-size", 18, 16);
+      &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 20, 15);
+      }
+    }
   }
 }
