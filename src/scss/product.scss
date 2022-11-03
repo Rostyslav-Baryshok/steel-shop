@@ -39,3 +39,68 @@
     padding-bottom: percent(177, 754);
   }
 }
+//========================================================================================================================================================
+.body-product {
+  padding: rem(30);
+  background-color: $seconderyFourLight;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  // .body-product__header
+  &__header {
+  }
+  // .body-product__table
+  &__table {
+  }
+  // .body-product__options
+  &__options {
+  }
+  // .body-product__actions
+  &__actions {
+  }
+}
+.header-product {
+  // .header-product__line
+  &__line {
+  }
+  // .header-product__title
+  &__title {
+  }
+  // .header-product__link
+  &__link {
+  }
+  // .header-product__rating
+  &__rating {
+  }
+}
+.table-product {
+  // .table-product__label
+  &__label {
+  }
+  // .table-product__value
+  &__value {
+  }
+}
+.options-product {
+  // .options-product__label
+  &__label {
+  }
+  // .options-product__value
+  &__value {
+  }
+}
+.actions-product {
+  // .actions-product__price
+  &__price {
+  }
+  // .actions-product__row
+  &__row {
+  }
+  // .actions-product__quantity
+  &__quantity {
+  }
+  // .actions-product__buttons
+  &__buttons {
+  }
+  // .actions-product__cart
+  &__cart {
+  }
+}
