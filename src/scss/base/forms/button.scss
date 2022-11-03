@@ -25,4 +25,9 @@
     border: 2px solid $accentColor;
     box-shadow: 0px 4px 15px rgba(232, 170, 49, 0.2);
   }
+  &_black {
+    background-color: $mainDarkColor;
+    box-shadow: none;
+    padding: rem(8) rem(30);
+  }
 }

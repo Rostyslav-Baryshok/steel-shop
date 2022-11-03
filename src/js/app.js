@@ -86,7 +86,7 @@ flsForms.formFieldsInit({
 flsForms.formSubmit();
 
 /* Модуль формы "колличество" */
-// flsForms.formQuantity();
+flsForms.formQuantity();
 
 /* Модуль звездного рейтинга */
 flsForms.formRating();

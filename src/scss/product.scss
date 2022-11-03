@@ -7,7 +7,9 @@
 }
 .main-product {
   display: grid;
+  align-items: center;
   grid-template-columns: percent(785, 1600) 1fr;
+  @include adaptiveValue("margin-bottom", 120, 40);
   // .main-product__images
   &__images {
     padding-right: rem(30);
@@ -36,7 +38,13 @@
   }
   // .thumbs-images__slide-ibg
   &__slide-ibg {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease 0s;
     padding-bottom: percent(177, 754);
+    &.swiper-slide-thumb-active {
+      opacity: 1;
+    }
   }
 }
 //========================================================================================================================================================
@@ -46,42 +54,67 @@
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   // .body-product__header
   &__header {
+    padding-bottom: rem(30);
+    border-bottom: 1px solid rgba(20, 20, 20, 0.15);
   }
   // .body-product__table
   &__table {
+    padding: rem(30) 0;
+    border-bottom: 1px solid rgba(20, 20, 20, 0.15);
   }
   // .body-product__options
   &__options {
+    padding: rem(30) 0;
+    border-bottom: 1px solid rgba(20, 20, 20, 0.15);
   }
   // .body-product__actions
   &__actions {
+    padding-top: rem(30);
   }
 }
 .header-product {
   // .header-product__line
   &__line {
+    display: flex;
+    gap: rem(30);
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
   }
   // .header-product__title
   &__title {
+    flex: 1 1 auto;
+    font-weight: 700;
+    font-size: rem(24);
+    line-height: math.div(29, 24);
   }
   // .header-product__link
   &__link {
+    font-size: rem(24);
   }
   // .header-product__rating
   &__rating {
   }
 }
 .table-product {
+  display: grid;
+  grid-template-columns: rem(200) 1fr;
+  gap: rem(20);
   // .table-product__label
   &__label {
   }
   // .table-product__value
   &__value {
+    color: rgba(20, 20, 20, 0.5);
   }
 }
 .options-product {
+  display: grid;
+  grid-template-columns: rem(200) 1fr;
+  gap: rem(20);
   // .options-product__label
   &__label {
+    align-self: center;
   }
   // .options-product__value
   &__value {
@@ -90,17 +123,37 @@
 .actions-product {
   // .actions-product__price
   &__price {
+    font-weight: 700;
+    font-size: rem(30);
+    line-height: math.div(37, 30);
+    &:not(:last-child) {
+      margin-bottom: em(35, 30);
+    }
   }
   // .actions-product__row
   &__row {
+    display: flex;
+    gap: rem(20);
   }
   // .actions-product__quantity
   &__quantity {
   }
   // .actions-product__buttons
   &__buttons {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: rem(20);
   }
   // .actions-product__cart
   &__cart {
+    span {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      &::before {
+        margin-left: rem(15);
+      }
+    }
   }
 }
