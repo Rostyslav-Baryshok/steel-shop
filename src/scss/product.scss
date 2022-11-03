@@ -2,17 +2,24 @@
   // .product__container
   &__container {
   }
+  &__info {
+    @include adaptiveValue("margin-bottom", 120, 40);
+  }
 }
 .product-main {
 }
 .main-product {
-  display: grid;
-  align-items: center;
-  grid-template-columns: percent(785, 1600) 1fr;
   @include adaptiveValue("margin-bottom", 120, 40);
+  display: grid;
+  align-items: start;
   // .main-product__images
   &__images {
-    padding-right: rem(30);
+    @media (min-width: $tablet) {
+      padding-right: rem(30);
+    }
+  }
+  @media (min-width: $tablet) {
+    grid-template-columns: percent(785, 1600) 1fr;
   }
 }
 .images-product {
@@ -49,9 +56,9 @@
 }
 //========================================================================================================================================================
 .body-product {
-  padding: rem(30);
   background-color: $seconderyFourLight;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  @include adaptiveValue("padding", 30, 15);
   // .body-product__header
   &__header {
     padding-bottom: rem(30);
@@ -76,14 +83,18 @@
   // .header-product__line
   &__line {
     display: flex;
-    gap: rem(30);
+    column-gap: rem(30);
+    row-gap: rem(15);
     &:not(:last-child) {
       margin-bottom: rem(10);
+    }
+    @media (max-width: $mobile) {
+      flex-wrap: wrap;
     }
   }
   // .header-product__title
   &__title {
-    flex: 1 1 auto;
+    flex: 1 1 100%;
     font-weight: 700;
     font-size: rem(24);
     line-height: math.div(29, 24);
@@ -98,7 +109,6 @@
 }
 .table-product {
   display: grid;
-  grid-template-columns: rem(200) 1fr;
   gap: rem(20);
   // .table-product__label
   &__label {
@@ -107,11 +117,16 @@
   &__value {
     color: rgba(20, 20, 20, 0.5);
   }
+  @media (min-width: $mobile) {
+    grid-template-columns: rem(200) 1fr;
+  }
 }
 .options-product {
   display: grid;
-  grid-template-columns: rem(200) 1fr;
   gap: rem(20);
+  @media (min-width: $mobile) {
+    grid-template-columns: rem(200) 1fr;
+  }
   // .options-product__label
   &__label {
     align-self: center;
@@ -134,6 +149,9 @@
   &__row {
     display: flex;
     gap: rem(20);
+    @media (max-width: em(1520)) {
+      flex-direction: column;
+    }
   }
   // .actions-product__quantity
   &__quantity {
@@ -142,8 +160,11 @@
   &__buttons {
     flex: 1 1 auto;
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
     gap: rem(20);
+    @media (min-width: em(1520)) {
+      justify-content: flex-end;
+    }
   }
   // .actions-product__cart
   &__cart {
@@ -151,9 +172,66 @@
       display: flex;
       align-items: center;
       flex-direction: row-reverse;
+      justify-content: center;
       &::before {
         margin-left: rem(15);
       }
+    }
+    @media (max-width: $mobileSmall) {
+      width: 100%;
+    }
+  }
+  &__button {
+    @media (max-width: $mobileSmall) {
+      width: 100%;
+    }
+  }
+}
+//========================================================================================================================================================
+.product-info {
+  padding: rem(10) rem(30) rem(30) rem(30);
+  background: $seconderyFourLight;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  // .product-info__navigation
+  &__navigation {
+    display: flex;
+    justify-content: flex-start;
+    @include adaptiveValue("gap", 60, 30);
+    border-bottom: 1px solid rgba(20, 20, 20, 0.15);
+    ._tab-spoller & {
+      display: none;
+    }
+  }
+  // .product-info__title
+  &__title {
+    position: relative;
+    padding: rem(20) 0;
+    font-size: rem(20);
+    line-height: math.div(24, 20);
+    color: rgba(20, 20, 20, 0.5);
+    ._tab-spoller & {
+      width: 100%;
+    }
+    &._tab-active {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: rem(1);
+        bottom: rem(-1);
+        left: 0;
+        background-color: $accentColor;
+      }
+    }
+  }
+  // .product-info__content
+  &__content {
+    padding: rem(30) 0 0 0;
+  }
+  // .product-info__body
+  &__body {
+    ._tab-spoller & {
+      padding: rem(30) 0;
     }
   }
 }
