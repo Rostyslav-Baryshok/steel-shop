@@ -73,7 +73,7 @@
                 <div class="header-product__line">
                   <h1 class="header-product__title">Knife Bullfinch</h1>
                   <a href="" class="header-product__link _icon-scales"></a>
-                  <a href="" class="header-product__link _icon-favorites"></a>
+                  <a href="" class="header-product__link header-product__link_favorites  _icon-favorites"></a>
                 </div>
                 <div class="header-product__rating rating">
                   <div class="rating__body">
@@ -88,6 +88,7 @@
                   </div>
                   <div class="rating__value">3.6</div>
                 </div>
+                <p class="header-product__stock">In stock</p>
               </div>
               <div class="body-product__table table-product">
                 <div class="table-product__label">Vendor code:</div>
@@ -201,6 +202,18 @@
           </div>
         </div>
       </div>
+      <section class="similar">
+        @@include('html/_products-slider.htm',{
+        "title":"Similar products",
+        "moretext":"Go to catalog"
+        })
+      </section>
+      <section class="recommended">
+        @@include('html/_products-slider.htm',{
+        "title":"Recommended",
+        "moretext":"Go to catalog"
+        })
+      </section>
     </main>
     @@include('html/_footer.htm',{})
   </div>

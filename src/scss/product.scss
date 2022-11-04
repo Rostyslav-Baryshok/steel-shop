@@ -102,9 +102,20 @@
   // .header-product__link
   &__link {
     font-size: rem(24);
+    &_favorites {
+      color: $accentColor;
+    }
   }
   // .header-product__rating
   &__rating {
+    padding-bottom: rem(10);
+  }
+  // .header-product__stock
+  &__stock {
+    font-weight: 500;
+    font-size: rem(16);
+    line-height: math.div(20, 16);
+    color: #24ad53;
   }
 }
 .table-product {
